@@ -27,8 +27,11 @@ namespace Engine
             set
             {
                 sprite = value;
-                width = sprite.Width;
-                height = sprite.Height;
+                if (value != null)
+                {
+                    width = sprite.Width;
+                    height = sprite.Height;
+                }
             }
         }
         public float x;

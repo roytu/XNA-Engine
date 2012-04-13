@@ -12,7 +12,7 @@ namespace Engine
     {
         public WallBasic(int x, int y) : base(x, y)
         {
-            Sprite = Game1.texWall;
+            Sprite = null;
         }
         public override void Init()
         {

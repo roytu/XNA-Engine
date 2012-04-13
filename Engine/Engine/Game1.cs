@@ -49,8 +49,8 @@ namespace Engine
             }
         }
 
-        public static Texture2D texPlayer;
-        public static Texture2D texWall;
+        public static GraphicsDevice graphicsDevice;
+        public static Texture2D prSquare;
 
         public Game1()
         {
@@ -72,6 +72,8 @@ namespace Engine
             // TODO: Add your initialization logic here
             base.Initialize();
 
+            graphicsDevice = GraphicsDevice;
+
             roomCont = new RoomCont();
             objCont = new ObjCont();
 
@@ -89,8 +91,8 @@ namespace Engine
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            texPlayer = Content.Load<Texture2D>("sPlayer");
-            texWall = Content.Load<Texture2D>("sWall");
+            prSquare = new Texture2D(GraphicsDevice, 1, 1);
+            prSquare.SetData<Color>(new Color[1] { Color.White });
         }
 
         /// <summary>
@@ -100,10 +102,8 @@ namespace Engine
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-            texPlayer.Dispose();
-            texPlayer = null;
-            texWall.Dispose();
-            texWall = null;
+            prSquare.Dispose();
+            prSquare = null;
         }
 
         /// <summary>

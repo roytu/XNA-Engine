@@ -21,7 +21,7 @@ namespace Engine
             xsp = 0;
             ysp = 0;
 
-            Sprite = Game1.texPlayer;
+            Sprite = null;
 
             xoff = width / 2;
             yoff = height / 2;
