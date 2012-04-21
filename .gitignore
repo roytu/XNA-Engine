@@ -1,0 +1,9 @@
+*.pdb
+*.exe
+*.xnb
+*.cachefile
+*.user
+*.contentproj
+bin/
+obj/
+Properties/

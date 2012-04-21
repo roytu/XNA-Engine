@@ -1,8 +1,0 @@
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\bin\x86\Debug\Engine.exe
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\bin\x86\Debug\Engine.pdb
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\obj\x86\Debug\Engine.exe
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\obj\x86\Debug\Engine.pdb
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\bin\x86\Debug\Content\sPlayer.xnb
-C:\Users\Owner\Desktop\C#\Engine\Engine\Engine\bin\x86\Debug\Content\sWall.xnb

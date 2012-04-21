@@ -1,2 +1,0 @@
-Content\sPlayer.xnb
-Content\sWall.xnb
