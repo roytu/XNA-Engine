@@ -84,8 +84,8 @@ namespace Engine
         {
             if (Sprite != null)
             {
-                Rectangle destRect = new Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width * xscale)), (int)Math.Abs(Math.Round(height * yscale)));
-                Rectangle srcRect = new Rectangle((int)((int)Math.Floor(frame) * Math.Round((decimal)width/frameCount)), 0, (int)(Math.Round((decimal)width/frameCount)), height);
+                Rectangle destRect = new Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width / frameCount * xscale)), (int)Math.Abs(Math.Round(height * yscale)));
+                Rectangle srcRect = new Rectangle((int)frame * (width / frameCount), 0, width / frameCount, height);
                 Vector2 orig = new Vector2(xoff, yoff);
                 if (xscale < 0 || yscale < 0)
                 {
