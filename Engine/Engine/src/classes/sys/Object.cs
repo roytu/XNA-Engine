@@ -5,6 +5,7 @@ using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Engine
 {
@@ -79,7 +80,27 @@ namespace Engine
             {
                 frame -= frameCount;
             }
+            if (Game1.currentMouseState.LeftButton == ButtonState.Pressed)
+            {
+                LeftClick();
+                if (Game1.prevMouseState.LeftButton == ButtonState.Released)
+                {
+                    LeftClicked();
+                }
+            }
+            if (Game1.currentMouseState.RightButton == ButtonState.Pressed)
+            {
+                RightClick();
+                if (Game1.prevMouseState.RightButton == ButtonState.Released)
+                {
+                    RightClicked();
+                }
+            }
         }
+        public virtual void LeftClick() { }
+        public virtual void LeftClicked() { }
+        public virtual void RightClick() { }
+        public virtual void RightClicked() { }
         public virtual void Draw(SpriteBatch sb)
         {
             if (Sprite != null)

@@ -50,6 +50,7 @@ namespace Engine
         }
 
         public static GraphicsDevice graphicsDevice;
+        public static MouseState prevMouseState;
         public static MouseState currentMouseState;
         public static Texture2D prSquare;
 
@@ -80,6 +81,9 @@ namespace Engine
 
             roomCont.Init();
             objCont.Init();
+
+            prevMouseState = Mouse.GetState();
+            currentMouseState = Mouse.GetState();
         }
 
         /// <summary>
@@ -119,8 +123,12 @@ namespace Engine
                 this.Exit();
 
             // TODO: Add your update logic here
+            currentMouseState = Mouse.GetState();
+
             roomCont.Update();
             objCont.Update();
+
+            prevMouseState = Mouse.GetState();
 
             base.Update(gameTime);
         }
