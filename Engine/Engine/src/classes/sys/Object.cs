@@ -24,6 +24,8 @@ namespace Engine
                 {
                     width = sprite.Width;
                     height = sprite.Height;
+                    frameWidth = sprite.Width;
+                    frameHeight = sprite.Height;
                 }
             }
         }
@@ -60,11 +62,8 @@ namespace Engine
             frame = 0;
             frameCount = 1;
             frameSpeed = 0;
-            if (sprite != null)
-            {
-                frameWidth = Sprite.Width;
-                frameHeight = Sprite.Height;
-            }
+            frameWidth = 0;
+            frameHeight = 0;
             bbox = new Rectangle();
 
             Game1.hObjCont.objectArray.Add(this);
