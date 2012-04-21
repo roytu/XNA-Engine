@@ -36,6 +36,13 @@ namespace Engine
         public float xscale;
         public float yscale;
         public float angle;
+
+        public float frame;
+        public int frameCount;
+        public float frameSpeed;
+        public int frameWidth;
+        public int frameHeight;
+
         public Rectangle bbox;
 
         public Object(int x=0, int y=0)
@@ -50,6 +57,14 @@ namespace Engine
             xscale = 1;
             yscale = 1;
             angle = 0;
+            frame = 0;
+            frameCount = 1;
+            frameSpeed = 0;
+            if (sprite != null)
+            {
+                frameWidth = Sprite.Width;
+                frameHeight = Sprite.Height;
+            }
             bbox = new Rectangle();
 
             Game1.hObjCont.objectArray.Add(this);
@@ -64,25 +79,35 @@ namespace Engine
                 }
                 );
         }
-        public virtual void Update(){}
+        public virtual void Update()
+        {
+            frame += frameSpeed;
+            if (frame >= frameCount)
+            {
+                frame -= frameCount;
+            }
+        }
         public virtual void Draw(SpriteBatch sb)
         {
             if (Sprite != null)
             {
+                Rectangle destRect = new Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width * xscale)), (int)Math.Abs(Math.Round(height * yscale)));
+                Rectangle srcRect = new Rectangle((int)Math.Floor(frame) * frameWidth, 0, frameWidth, frameHeight);
+                Vector2 orig = new Vector2(xoff, yoff);
                 if (xscale < 0 || yscale < 0)
                 {
                     if (xscale < 0)
                     {
-                        sb.Draw(Sprite, new Microsoft.Xna.Framework.Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width * xscale)), (int)Math.Abs(Math.Round(height * yscale))), null, Color.White, angle, new Vector2(xoff, yoff), SpriteEffects.FlipHorizontally, 0);
+                        sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.FlipHorizontally, 0);
                     }
                     else if (yscale < 0)
                     {
-                        sb.Draw(Sprite, new Microsoft.Xna.Framework.Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width * xscale)), (int)Math.Abs(Math.Round(height * yscale))), null, Color.White, angle, new Vector2(xoff, yoff), SpriteEffects.FlipVertically, 0);
+                        sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.FlipVertically, 0);
                     }
                 }
                 else
                 {
-                    sb.Draw(Sprite, new Microsoft.Xna.Framework.Rectangle((int)x, (int)Math.Round(y), (int)Math.Abs(Math.Round(width * xscale)), (int)Math.Abs(Math.Round(height * yscale))), null, Color.White, angle, new Vector2(xoff, yoff), SpriteEffects.None, 0);
+                    sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.None, 0);
                 }
             }
         }
