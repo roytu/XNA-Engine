@@ -50,6 +50,7 @@ namespace Engine
         }
 
         public static GraphicsDevice graphicsDevice;
+        public static MouseState currentMouseState;
         public static Texture2D prSquare;
 
         public Game1()
