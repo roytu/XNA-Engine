@@ -82,25 +82,25 @@ namespace Engine
             }
             if (Game1.currentMouseState.LeftButton == ButtonState.Pressed)
             {
-                LeftClick();
+                LeftClick(Game1.currentMouseState.X, Game1.currentMouseState.Y);
                 if (Game1.prevMouseState.LeftButton == ButtonState.Released)
                 {
-                    LeftClicked();
+                    LeftClicked(Game1.currentMouseState.X, Game1.currentMouseState.Y);
                 }
             }
             if (Game1.currentMouseState.RightButton == ButtonState.Pressed)
             {
-                RightClick();
+                RightClick(Game1.currentMouseState.X, Game1.currentMouseState.Y);
                 if (Game1.prevMouseState.RightButton == ButtonState.Released)
                 {
-                    RightClicked();
+                    RightClicked(Game1.currentMouseState.X, Game1.currentMouseState.Y);
                 }
             }
         }
-        public virtual void LeftClick() { }
-        public virtual void LeftClicked() { }
-        public virtual void RightClick() { }
-        public virtual void RightClicked() { }
+        public virtual void LeftClick(int mouseX, int mouseY) { }
+        public virtual void LeftClicked(int mouseX, int mouseY) { }
+        public virtual void RightClick(int mouseX, int mouseY) { }
+        public virtual void RightClicked(int mouseX, int mouseY) { }
         public virtual void Draw(SpriteBatch sb)
         {
             if (Sprite != null)
