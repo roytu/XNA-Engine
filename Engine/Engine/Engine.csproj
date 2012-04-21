@@ -113,6 +113,7 @@
     <Compile Include="src\classes\cont\ObjCont.cs" />
     <Compile Include="src\classes\cont\RoomCont.cs" />
     <Compile Include="src\classes\ext\ExtClasses.cs" />
+    <Compile Include="src\classes\ext\ExtConstants.cs" />
     <Compile Include="src\classes\ext\ExtTexture.cs" />
     <Compile Include="src\classes\ext\Ext.cs" />
     <Compile Include="src\classes\game\Player.cs" />
