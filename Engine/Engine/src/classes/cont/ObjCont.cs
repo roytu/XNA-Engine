@@ -28,7 +28,7 @@ namespace Engine
         }
         public void Draw(SpriteBatch sb)
         {
-            sb.Begin();
+            sb.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             for(int i=0;i<objectArray.Count;i++)
             {
                 objectArray[i].Draw(sb);

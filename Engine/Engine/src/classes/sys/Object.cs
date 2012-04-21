@@ -37,6 +37,7 @@ namespace Engine
         public float xscale;
         public float yscale;
         public float angle;
+        public float depth;
 
         public float frame;
         public int frameCount;
@@ -56,6 +57,7 @@ namespace Engine
             xscale = 1;
             yscale = 1;
             angle = 0;
+            depth = 0;
             frame = 0;
             frameCount = 1;
             frameSpeed = 0;
@@ -112,16 +114,16 @@ namespace Engine
                 {
                     if (xscale < 0)
                     {
-                        sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.FlipHorizontally, 0);
+                        sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.FlipHorizontally, depth);
                     }
                     else if (yscale < 0)
                     {
-                        sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.FlipVertically, 0);
+                        sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.FlipVertically, depth);
                     }
                 }
                 else
                 {
-                    sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.None, 0);
+                    sb.Draw(Sprite, destRect, srcRect, Color.White, angle, orig, SpriteEffects.None, depth);
                 }
             }
         }
