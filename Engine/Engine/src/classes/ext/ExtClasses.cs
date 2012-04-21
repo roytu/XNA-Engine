@@ -10,11 +10,13 @@ namespace Engine
         public class Grid<T>
         {
             private List<List<T>> grid;
-            public uint width;
-            public uint height;
+            public int width;
+            public int height;
 
-            public Grid(uint width, uint height, T def)
+            public Grid(int width, int height, T def)
             {
+                grid = new List<List<T>>();
+
                 this.width = width;
                 this.height = height;
                 for (uint x = 0; x < width; x++)
