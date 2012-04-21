@@ -24,8 +24,6 @@ namespace Engine
                 {
                     width = sprite.Width;
                     height = sprite.Height;
-                    frameWidth = sprite.Width;
-                    frameHeight = sprite.Height;
                 }
             }
         }
@@ -42,8 +40,6 @@ namespace Engine
         public float frame;
         public int frameCount;
         public float frameSpeed;
-        public int frameWidth;
-        public int frameHeight;
 
         public Rectangle bbox;
 
@@ -62,8 +58,6 @@ namespace Engine
             frame = 0;
             frameCount = 1;
             frameSpeed = 0;
-            frameWidth = 0;
-            frameHeight = 0;
             bbox = new Rectangle();
 
             Game1.hObjCont.objectArray.Add(this);
@@ -91,7 +85,7 @@ namespace Engine
             if (Sprite != null)
             {
                 Rectangle destRect = new Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width * xscale)), (int)Math.Abs(Math.Round(height * yscale)));
-                Rectangle srcRect = new Rectangle((int)Math.Floor(frame) * frameWidth, 0, frameWidth, frameHeight);
+                Rectangle srcRect = new Rectangle((int)Math.Floor(frame) * width/frameCount, 0, width/frameCount, height);
                 Vector2 orig = new Vector2(xoff, yoff);
                 if (xscale < 0 || yscale < 0)
                 {
