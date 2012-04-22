@@ -70,7 +70,17 @@ namespace Engine
         }
         ~Object()
         {
-            int _i = Game1.hObjCont.objectArray.RemoveAll
+            Game1.hObjCont.objectArray.RemoveAll
+                (
+                delegate(Object _o)
+                {
+                    return _o == this;
+                }
+                );
+        }
+        public void Remove()
+        {
+            Game1.hObjCont.objectArray.RemoveAll
                 (
                 delegate(Object _o)
                 {
