@@ -39,6 +39,7 @@ namespace Engine
         public float angle;
         public float depth;
         public Color color;
+        public bool visible;
 
         public float frame;
         public int frameCount;
@@ -60,6 +61,7 @@ namespace Engine
             angle = 0;
             depth = 0;
             color = Color.White;
+            visible = true;
 
             frame = 0;
             frameCount = 1;
@@ -118,25 +120,28 @@ namespace Engine
         public virtual void RightClicked(int mouseX, int mouseY) { }
         public virtual void Draw(SpriteBatch sb)
         {
-            if (Sprite != null)
+            if(visible)
             {
-                Rectangle destRect = new Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width / frameCount * xscale)), (int)Math.Abs(Math.Round(height * yscale)));
-                Rectangle srcRect = new Rectangle((int)frame * (width / frameCount), 0, width / frameCount, height);
-                Vector2 orig = new Vector2(xoff, yoff);
-                if (xscale < 0 || yscale < 0)
+                if (Sprite != null)
                 {
-                    if (xscale < 0)
+                    Rectangle destRect = new Rectangle((int)x, (int)y, (int)Math.Abs(Math.Round(width / frameCount * xscale)), (int)Math.Abs(Math.Round(height * yscale)));
+                    Rectangle srcRect = new Rectangle((int)frame * (width / frameCount), 0, width / frameCount, height);
+                    Vector2 orig = new Vector2(xoff, yoff);
+                    if (xscale < 0 || yscale < 0)
                     {
-                        sb.Draw(Sprite, destRect, srcRect, color, angle, orig, SpriteEffects.FlipHorizontally, depth);
+                        if (xscale < 0)
+                        {
+                            sb.Draw(Sprite, destRect, srcRect, color, angle, orig, SpriteEffects.FlipHorizontally, depth);
+                        }
+                        else if (yscale < 0)
+                        {
+                            sb.Draw(Sprite, destRect, srcRect, color, angle, orig, SpriteEffects.FlipVertically, depth);
+                        }
                     }
-                    else if (yscale < 0)
+                    else
                     {
-                        sb.Draw(Sprite, destRect, srcRect, color, angle, orig, SpriteEffects.FlipVertically, depth);
+                        sb.Draw(Sprite, destRect, srcRect, color, angle, orig, SpriteEffects.None, depth);
                     }
-                }
-                else
-                {
-                    sb.Draw(Sprite, destRect, srcRect, color, angle, orig, SpriteEffects.None, depth);
                 }
             }
         }
